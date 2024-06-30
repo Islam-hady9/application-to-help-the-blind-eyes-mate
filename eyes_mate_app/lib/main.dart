@@ -1,7 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
+import 'package:eyes_mate_app/scan_page.dart';
+import 'package:camera/camera.dart';
 
-void main() {
+List<CameraDescription>? cameras;
+
+void main() async {
+  WidgetsFlutterBinding.ensureInitialized();
+  cameras = await availableCameras();
   runApp(MyApp());
 }
 
@@ -61,7 +67,7 @@ class SwipePage extends StatelessWidget {
         else if (details.velocity.pixelsPerSecond.dy > 0) {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => DownPage(),
+              builder: (context) => UpPage(),
             ),
           );
         }
@@ -79,7 +85,7 @@ class SwipePage extends StatelessWidget {
         else if (details.velocity.pixelsPerSecond.dx < 0) {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => LeftPage(),
+              builder: (context) => Home(),
             ),
           );
         }
