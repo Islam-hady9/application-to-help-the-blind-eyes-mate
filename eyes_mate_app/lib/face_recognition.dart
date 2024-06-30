@@ -4,28 +4,20 @@ import 'package:eyes_mate_app/main.dart';
 import 'package:tflite_v2/tflite_v2.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 
-class CurrencyPage extends StatefulWidget {
-  const CurrencyPage({Key? key}) : super(key: key);
+class FacePage extends StatefulWidget {
+  const FacePage({Key? key}) : super(key: key);
 
   @override
   _HomeState createState() => _HomeState();
 }
 
-class _HomeState extends State<CurrencyPage> {
+class _HomeState extends State<FacePage> {
   CameraImage? cameraImage;
   CameraController? cameraController;
   String output = '';
   FlutterTts flutterTts = FlutterTts();
-  Map<String, String> Currency = {
-    '0': '1',
-    '1': '5',
-    '2': '10',
-    '3': '10 (new)',
-    '4': '20',
-    '5': '20 (new)',
-    '6': '50',
-    '7': '100',
-    '8': '200',
+  Map<String, String> Faces = {
+    '0': 'person',
   };
 
   @override
@@ -34,11 +26,11 @@ class _HomeState extends State<CurrencyPage> {
     loadCamera();
     loadModel();
     initTts();
-    _speakCurrency();
+    _speakFaces();
   }
 
-  Future<void> _speakCurrency() async {
-    await flutterTts.speak("Currency Recognition is Opened");
+  Future<void> _speakFaces() async {
+    await flutterTts.speak("Face Recognition is Opened");
   }
 
   void initTts() {
@@ -94,11 +86,11 @@ class _HomeState extends State<CurrencyPage> {
       predictions!.forEach((element) {
         setState(() {
           // Trim and ensure the label is correctly formatted
-          String CurrencyLabel = element['label'].trim();
-          String CurrencyRecognition = Currency[CurrencyLabel] ?? CurrencyLabel;
+          String FaceLabel = element['label'].trim();
+          String FaceRecognition = Faces[FaceLabel] ?? FaceLabel;
 
           // Set output to the correct recognition value
-          output = CurrencyRecognition;
+          output = FaceRecognition;
 
           print(output);
           speak(output);
@@ -118,8 +110,8 @@ class _HomeState extends State<CurrencyPage> {
 
   loadModel() async {
     await Tflite.loadModel(
-        model: "assets/currency_model.tflite",
-        labels: "assets/currency_labels.txt");
+        model: "assets/faces_detect_model.tflite",
+        labels: "assets/faces_detect_labels.txt");
   }
 
   @override
@@ -131,7 +123,7 @@ class _HomeState extends State<CurrencyPage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: Text('Currency Detection')),
+      appBar: AppBar(title: Text('Face Recognition')),
       body: Column(children: [
         Padding(
           padding: EdgeInsets.all(20),

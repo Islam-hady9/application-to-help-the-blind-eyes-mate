@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:eyes_mate_app/scan_page.dart';
+import 'face_recognition.dart';
 import 'package:camera/camera.dart';
 
 List<CameraDescription>? cameras;
@@ -67,7 +68,7 @@ class SwipePage extends StatelessWidget {
         else if (details.velocity.pixelsPerSecond.dy > 0) {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => UpPage(),
+              builder: (context) => DownPage(),
             ),
           );
         }
@@ -77,7 +78,7 @@ class SwipePage extends StatelessWidget {
         if (details.velocity.pixelsPerSecond.dx > 0) {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => RightPage(),
+              builder: (context) => FacePage(),
             ),
           );
         }
@@ -85,7 +86,7 @@ class SwipePage extends StatelessWidget {
         else if (details.velocity.pixelsPerSecond.dx < 0) {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => Home(),
+              builder: (context) => CurrencyPage(),
             ),
           );
         }
@@ -94,7 +95,7 @@ class SwipePage extends StatelessWidget {
         color: Color.fromARGB(255, 182, 54, 67),
         child: Center(
           child: Text(
-            'Swipe up, down, left, or right',
+            'Swipe Up, Down, Left, or Right',
             style:
                 TextStyle(color: Color.fromARGB(255, 6, 1, 1), fontSize: 20.0),
           ),
