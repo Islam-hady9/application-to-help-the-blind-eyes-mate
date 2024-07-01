@@ -74,6 +74,8 @@ flutter:
      - assets/currency_labels.txt
      - assets/faces_detect_model.tflite
      - assets/faces_detect_labels.txt
+     - assets/object_recognition_model.tflite
+     - assets/objects_labels.txt
   # assets:
   #   - images/a_dot_burr.jpeg
   #   - images/a_dot_ham.jpeg

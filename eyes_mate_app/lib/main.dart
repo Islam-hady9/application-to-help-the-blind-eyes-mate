@@ -1,7 +1,8 @@
+import 'package:eyes_mate_app/object_recognition.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_tts/flutter_tts.dart';
 import 'package:eyes_mate_app/scan_page.dart';
-import 'face_recognition.dart';
+import 'package:eyes_mate_app/face_recognition.dart';
 import 'package:camera/camera.dart';
 
 List<CameraDescription>? cameras;
@@ -60,7 +61,7 @@ class SwipePage extends StatelessWidget {
         if (details.velocity.pixelsPerSecond.dy < 0) {
           Navigator.of(context).push(
             MaterialPageRoute(
-              builder: (context) => UpPage(),
+              builder: (context) => ObjectsPage(),
             ),
           );
         }
