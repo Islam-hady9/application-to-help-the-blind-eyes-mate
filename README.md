@@ -48,7 +48,7 @@ EyesMate is a mobile application designed to assist visually impaired individual
 3. Swipe through the interface to access different features.
 
 ## Demo Video
-Watch the demo video to see EyesMate in action.
+Watch the demo video to see EyesMate in action
 [![EyesMate Demo](https://cdn1.iconfinder.com/data/icons/modifiers-essential-glyph/48/Sed-32-512.png)](https://github.com/Islam-hady9/application-to-help-the-blind-eyes-mate/blob/main/Project%20Demo.mp4)
 
 ## Contributors
